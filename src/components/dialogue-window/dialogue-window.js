@@ -5,12 +5,13 @@ import './dialogue-window.css';
 import DialogueList from '../dialogue-list/dialogue-list';
 import DialogueMessageList from "../dialogue-message-list/dialogue-message-list";
 
-const DialogueWindow = ({dialogues, onSwitchDialogue}) => {
+const DialogueWindow = ({dialogues, messages, onSwitchDialogue}) => {
     return(
         <div className="dialogue__window">
             <DialogueList dialogues={dialogues}
             onSwitchDialogue={onSwitchDialogue}></DialogueList>
-            <DialogueMessageList></DialogueMessageList>
+            <DialogueMessageList
+            messages={messages}/>
         </div>
     )
 }

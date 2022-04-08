@@ -17,20 +17,30 @@ export default class App extends Component {
           {
             name: 'Quadatz',
             messages: [
-              {text: "Hi", order:""},
-              {text: "Hi!", order:"true"},
+              {text: "Hi", order:"", id: "1"},
+              {text: "Hi, my clone!", order:"true", id: "2"},
             ]
           },
           {
-            name: 'Svino'
-
+            name: 'Svino',
+            messages: [
+              {text: "Bruh", order:"", id: "1"},
+              {text: "Leatherman", order:"true", id: "2"},
+              {text: "Did you mean Featherman?", order:"", id: "3"},
+            ]
           }, 
           {
-            name: 'GeoShroom'
-
+            name: 'GeoShroom',
+            messages: [
+              {text: "Do you want some mushrooms?", order:"", id: "1"},
+              {text: "No.", order:"true", id: "2"},
+              {text: "Why?", order:"", id: "3"},
+              {text: "It is tasty!", order:"", id: "4"},
+              {text: "I said no.", order:"true", id: "5"},
+            ]
           }
         ],
-        dialogue: 'Quadath'
+        dialogue: 'Quadatz'
       }
       this.onSwitchDialogue = this.onSwitchDialogue.bind(this);
     }
@@ -48,9 +58,10 @@ export default class App extends Component {
       console.log();
       return (
         <div className='app'>
-         <DialogueHeader label={dialogue}></DialogueHeader>
+         <DialogueHeader label={dialogue}/>
          <DialogueWindow onSwitchDialogue={this.onSwitchDialogue}
-         dialogues={dialogues}></DialogueWindow>
+         dialogues={dialogues}
+         messages={messages().messages}/>
         </div>
       )
     }
