@@ -1,0 +1,10 @@
+.dialogue__list {
+    display: inline-block;
+    height: 100vh;
+    width: 56px;
+    margin-top: 0;
+    padding: 3px;
+    background-color: rgb(14, 17, 31);
+
+    box-sizing: border-box;
+}

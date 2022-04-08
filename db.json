@@ -1,0 +1,22 @@
+{
+    "Quadath": {
+        "photo": "https://th.bing.com/th/id/OIP.ZJ4tlUrRrZnw6YK8B1pMwQHaHa?pid=ImgDet&rs=1",
+        "dialogues": {
+            "Quadatz": {
+                "001": {
+                    "text": "bruh"
+                }
+            }
+        }
+    },
+    "Quadatz": {
+        "photo": "https://th.bing.com/th/id/R.e48b6db1c125e939ef514633a3b518f8?rik=vBFdWmmk3HIYzw&pid=ImgRaw&r=0",
+        "dialogues": {
+            "Quadath": {
+                "001": {
+                    "text": "bruh"
+                }
+            }
+        }
+    }
+}

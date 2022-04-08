@@ -1,0 +1,23 @@
+.dialogue__message {
+    display: block;
+    height: 40px;
+    width: max-content;
+    margin-top: 2px;
+
+    background-color: #444;
+    font-size: 20px;
+    border-radius: 4px;
+    padding: 2px;
+    color: white;
+}
+.red {
+    background-color: #a00;
+}
+
+.order {
+    background-color: #777;
+    margin-left: 100%;
+
+    transform: translateX(-100%);
+    text-align: right;
+}

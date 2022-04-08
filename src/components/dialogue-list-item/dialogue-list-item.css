@@ -1,0 +1,11 @@
+.dialogue__list-item {
+    display: block;
+    height: 50px;
+    width: 50px;
+    background-color: #aaa;
+    border-radius: 3px;
+    border: 2px dotted skyblue;
+    margin-top: 3px;
+
+    box-sizing: border-box;
+}
