@@ -1,4 +1,7 @@
 .dialogue__message {
+    display: flex;
+}
+.dialogue__message-text {
     display: block;
     height: 40px;
     width: max-content;
@@ -10,14 +13,25 @@
     padding: 2px;
     color: white;
 }
-.red {
-    background-color: #a00;
-}
-
 .order {
+    justify-content: flex-end;
+}
+.order .dialogue__message-text{
     background-color: #777;
-    margin-left: 100%;
 
-    transform: translateX(-100%);
     text-align: right;
+}
+.btn_delete {
+    height: 16px;
+    width: 16px;
+    margin-top: 3px;
+    margin-right: 2px;
+    padding: 0;
+    border: none;
+    background-color: rgba(0,0,0,0);
+    cursor: pointer;
+}
+.btn_delete img {
+    height: 100%;
+    width: 100%;
 }

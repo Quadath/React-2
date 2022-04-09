@@ -37,50 +37,59 @@ export default class App extends Component {
             ]
           }
         ],
-        dialogue: 'Quadatz'
+        dialogueId: 0
       }
       this.addItem = this.addItem.bind(this);
+      this.deleteItem = this.deleteItem.bind(this);
       this.onSwitchDialogue = this.onSwitchDialogue.bind(this);
     }
     addItem(body) {
-      const {dialogues, dialogue} = this.state;
+      const {dialogues, dialogueId: dialogue} = this.state;
 
-      const index = dialogues.findIndex(elem => elem.name === dialogue);
-      const newId = dialogues[index].messages.length + 1;
+      const newId = dialogues[dialogue].messages.length + 1;
 
       const newMessage = {
         text: body,
         order: "true",
         id: newId
       }
+      const changed = dialogues;
+      changed[dialogue].messages.push(newMessage);
+
       this.setState(({dialogues}) => {
-        const changed = dialogues;
-        changed[index].messages.push(newMessage);
-        console.log('called');
-        return {
-          dialogues: changed
-        }
+        return {dialogues: changed}
       });
     }
+    deleteItem(id) {
+      const {dialogueId} = this.state;
+      this.setState(({dialogues}) => {
+        let changed = dialogues;
+        const newMessages = changed[dialogueId].messages.filter(item => item.id !== id)
+        changed[dialogueId].messages = newMessages;
+        return  {
+          dialogues: changed
+        }
+      })
+    }
 
-    onSwitchDialogue(dialogue) {
-      this.setState({dialogue});
+    onSwitchDialogue(dialogueId) {
+      this.setState({dialogueId});
     }
 
     render() {
-      const {dialogue, dialogues} = this.state;
+      const {dialogueId: dialogue, dialogues} = this.state;
       const messages = () => {
-        const index = this.state.dialogues.findIndex(elem => elem.name === dialogue);
-        return this.state.dialogues[index];
+        return this.state.dialogues[dialogue];
       }
       console.log();
       return (
         <div className='app'>
-         <DialogueHeader label={dialogue}/>
+         <DialogueHeader label={dialogues[dialogue].name}/>
          <DialogueWindow 
          dialogues={dialogues}
          messages={messages().messages}
          onAdd={this.addItem}
+         onDelete={this.deleteItem}
          onSwitchDialogue={this.onSwitchDialogue}/>
         </div>
       )
