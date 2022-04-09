@@ -5,7 +5,8 @@ import './dialogue-message-list.css';
 const DialogueMessageList = ({messages}) => {
     const elements = messages.map((item, i) => {
         return (
-                <DialogueMessage label={item.text} 
+                <DialogueMessage key={item.id}
+                label={item.text} 
                 order={item.order}/>
         )
     })

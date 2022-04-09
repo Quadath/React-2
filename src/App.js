@@ -5,9 +5,6 @@ import './App.css';
 import DialogueWindow from './components/dialogue-window/dialogue-window';
 import DialogueHeader from './components/dialogue-header/dialogue-header';
 
-import getService from './services/getService';
-
-
 
 export default class App extends Component {
     constructor(props) {
@@ -42,7 +39,28 @@ export default class App extends Component {
         ],
         dialogue: 'Quadatz'
       }
+      this.addItem = this.addItem.bind(this);
       this.onSwitchDialogue = this.onSwitchDialogue.bind(this);
+    }
+    addItem(body) {
+      const {dialogues, dialogue} = this.state;
+
+      const index = dialogues.findIndex(elem => elem.name === dialogue);
+      const newId = dialogues[index].messages.length + 1;
+
+      const newMessage = {
+        text: body,
+        order: "true",
+        id: newId
+      }
+      this.setState(({dialogues}) => {
+        const changed = dialogues;
+        changed[index].messages.push(newMessage);
+        console.log('called');
+        return {
+          dialogues: changed
+        }
+      });
     }
 
     onSwitchDialogue(dialogue) {
@@ -59,9 +77,11 @@ export default class App extends Component {
       return (
         <div className='app'>
          <DialogueHeader label={dialogue}/>
-         <DialogueWindow onSwitchDialogue={this.onSwitchDialogue}
+         <DialogueWindow 
          dialogues={dialogues}
-         messages={messages().messages}/>
+         messages={messages().messages}
+         onAdd={this.addItem}
+         onSwitchDialogue={this.onSwitchDialogue}/>
         </div>
       )
     }
