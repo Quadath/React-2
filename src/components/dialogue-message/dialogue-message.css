@@ -3,14 +3,16 @@
 }
 .dialogue__message-text {
     display: block;
-    height: 40px;
+    position: relative;
     width: max-content;
+    max-width: 600px;
     margin-top: 2px;
 
     background-color: #444;
     font-size: 20px;
     border-radius: 4px;
     padding: 2px;
+    word-wrap: break-word;
     color: white;
 }
 .order {
@@ -18,20 +20,47 @@
 }
 .order .dialogue__message-text{
     background-color: #777;
-
+    
     text-align: right;
 }
-.btn_delete {
+
+.message__actions {
+    width: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.message__actions button{
+    display: none;
     height: 16px;
     width: 16px;
-    margin-top: 3px;
     margin-right: 2px;
+    background-color: rgba(0,0,0,0);
     padding: 0;
     border: none;
-    background-color: rgba(0,0,0,0);
     cursor: pointer;
 }
-.btn_delete img {
+.message__actions:hover .btn-like{
+    display: block;
+}
+.order .message__actions:hover .btn-delete{
+    display: block;
+}
+button img {
     height: 100%;
     width: 100%;
 }
+.like-heart {
+    display: block;
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    display: block;
+    height: 10px;
+    width: 0px;
+    transition: 0.5s all;
+}
+.like .like-heart{
+    width: 10px;
+}
+

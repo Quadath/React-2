@@ -1,5 +1,9 @@
 .dialogue__message-list {
+    overflow-y: scroll;
     background-color: #222;
     width: 100%;
     padding: 5px;   
+}
+.dialogue__message-list::-webkit-scrollbar {
+   display: none;
 }

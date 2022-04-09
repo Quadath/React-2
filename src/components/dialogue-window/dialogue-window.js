@@ -6,7 +6,7 @@ import DialogueList from '../dialogue-list/dialogue-list';
 import DialogueMessageList from "../dialogue-message-list/dialogue-message-list";
 import PostMessageForm from "../post-message-form/post-message-form";
 
-const DialogueWindow = ({dialogues, messages, onAdd, onDelete, onSwitchDialogue}) => {
+const DialogueWindow = ({dialogues, messages, onAdd, onLike, onDelete, onSwitchDialogue}) => {
     return(
         <div className="dialogue__window">
             <DialogueList dialogues={dialogues}
@@ -14,6 +14,7 @@ const DialogueWindow = ({dialogues, messages, onAdd, onDelete, onSwitchDialogue}
             <div className="message__window">
             <DialogueMessageList
             messages={messages}
+            onLike={onLike}
             onDelete={onDelete}
             />
             <PostMessageForm
